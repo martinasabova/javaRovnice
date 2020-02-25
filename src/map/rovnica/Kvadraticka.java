@@ -52,7 +52,7 @@ public class Kvadraticka extends Rovnica
     @Override
     protected void vypisKorene()
     {
-
+        System.out.println("Korene");
     }
 
     @Override
