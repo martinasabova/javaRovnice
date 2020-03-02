@@ -22,16 +22,29 @@ public class Kvadraticka extends Rovnica
     @Override
     protected void vypisRovnicu()
     {
-        System.out.printf("%.2fx %+.2f %+.2f = 0 \n", koefA, koefB, koefC);
+        System.out.printf("%.2fx^2 %+.2fx %+.2f = 0 \n", koefA, koefB, koefC);
     }
 
     @Override
-    protected float[] getKorene()
+    public float[] getKorene()
     {
+		try
+		{
+			if (koefA==0)
+			{
+				throw new JeNula("Rovnica nie je kvadraticka.");
+			}
+		}
+		catch (JeNula ex)
+		{
+			ex.getMsg();
+			Linearna Nahrada = new Linearna(koefB, koefC);
+			return Nahrada.getKorene();
+		}
         float D=koefB*koefB-4*koefA*koefC;
         if(D<0)
         {
-            System.out.println("Nema riesenie.");
+            System.out.println("Nema riesenie.\n");
             return new float [0];
         }
         if (D==0)
@@ -52,12 +65,20 @@ public class Kvadraticka extends Rovnica
     @Override
     protected void vypisKorene()
     {
-        System.out.println("Korene");
+        int dlzka=getKorene().length;
+        if(dlzka==1)
+        {
+            System.out.println(getKorene()[0]);
+        }
+        if(dlzka==2)
+        {
+            System.out.printf("prvy %f druhy %f\n",getKorene()[0], getKorene()[1]);
+        }
     }
 
     @Override
     public String toString()
     {
-        return null;
+        return koefA + "x^2 " + ((koefB>0)? "+":"")+koefB+ "x " +koefC+ " = 0\n";
     }
 }

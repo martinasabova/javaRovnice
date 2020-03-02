@@ -36,9 +36,23 @@ public class Linearna extends Rovnica
     }
 
     @Override
-    protected float[] getKorene()
+    public float[] getKorene()
     {
         float []  pole = new float [1];
+        try
+        {
+            if (koefA==0)
+            {
+                throw new JeNula("Pri x je nula.");
+            }
+        }
+        catch (JeNula ex)
+        {
+            ex.getMsg();
+            return new float [0];
+            //return null;
+        }
+
         pole[0]=-koefB/koefA;
         return pole;
     }
@@ -52,7 +66,7 @@ public class Linearna extends Rovnica
     @Override
     public String toString()
     {
-        return koefA + "x " + ((koefB>0)? "+":"")+koefB+ " = 0";
+        return koefA + "x " + ((koefB>0)? "+":"")+koefB+ " = 0\n";
     }
 
 }
