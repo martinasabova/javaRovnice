@@ -24,14 +24,11 @@ class KvadratickaTest
     @Test
     void getKorene()
     {
-        float [] korene1;
-        korene1 = new float[]{3, 2};
-        assertArrayEquals(K1.getKorene(), korene1);
-        float [] korene2;
-        korene2 = new float[0];
-        assertArrayEquals(K2.getKorene(),korene2);
-        float [] korene3;
-        korene3 = new float[]{-2};
-        assertArrayEquals(K3.getKorene(), korene3);
+        //float [] korene1 = new float[]{3, 2};
+        assertArrayEquals(K1.getKorene(), new float[]{3, 2});
+        //float [] korene2 = new float[0];
+        assertArrayEquals(K2.getKorene(),new float[0]);
+        //float [] korene3 = new float[]{-2};
+        assertArrayEquals(K3.getKorene(), new float[]{-2});
     }
 }
