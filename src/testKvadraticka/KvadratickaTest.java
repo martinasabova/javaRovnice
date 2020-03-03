@@ -17,7 +17,6 @@ class KvadratickaTest
     void setUp()
     {
         K1 = new Kvadraticka(1, -5, 6);
-
         K2 = new Kvadraticka(1, 4, 6);
         K3 = new Kvadraticka(1, 4, 4);
     }
@@ -25,7 +24,14 @@ class KvadratickaTest
     @Test
     void getKorene()
     {
-        float [] korene1 = new float [2];
-        assertArrayEquals(K1.getKorene(), );
+        float [] korene1;
+        korene1 = new float[]{3, 2};
+        assertArrayEquals(K1.getKorene(), korene1);
+        float [] korene2;
+        korene2 = new float[0];
+        assertArrayEquals(K2.getKorene(),korene2);
+        float [] korene3;
+        korene3 = new float[]{-2};
+        assertArrayEquals(K3.getKorene(), korene3);
     }
 }
